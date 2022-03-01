@@ -34,7 +34,7 @@
 
 本字体使用的字模来源于：[https://github.com/aguegu/BitmapFont/tree/master/font](https://github.com/aguegu/BitmapFont/tree/master/font)
 
-根据 [原项目作者博客描述](http://aguegu.net/?p=1279) ，该字模可能来源于 UCDOS ，或是早期的 WPS 。但我无法找到关于该字模的明确版权信息。
+根据 [原项目作者博客描述](https://web.archive.org/web/20161108093925/http://aguegu.net/?p=1279) ，该字模可能来源于 UCDOS ，或是早期的 WPS 。但我无法找到关于该字模的明确版权信息。
 
 因此，本字体不提供任何许可证。您在使用本字体时，请谨慎考量并自负版权风险。
 
