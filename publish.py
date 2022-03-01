@@ -58,9 +58,9 @@ def _publish_www():
     repo = git.Repo.init(www_dir)
     repo.git.add(all=True)
     repo.git.commit(m=f'deployed at {time.strftime("%Y-%m-%d %H-%M-%S")}')
-    repo.git.checkout(b=git_branch_name)
     repo.git.remote('add', git_remote_name, git_url)
-    repo.git.push(git_remote_name, git_branch_name, '-f')
+    current_branch_name = repo.git.branch(show_current=True)
+    repo.git.push(git_remote_name, f'{current_branch_name}:{git_branch_name}', '-f')
 
 
 def main():
