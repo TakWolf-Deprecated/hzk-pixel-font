@@ -15,7 +15,7 @@ em_dot_size = 100
 outputs_dir = 'outputs/'
 
 
-def _collect_available_design(design_dirs):
+def _collect_design_files(design_dirs):
     """
     收集可用字母表，生成设计文件映射表
     """
@@ -134,7 +134,7 @@ def run():
             'description': 'HZK pixel font.',
             'vendorURL': 'https://hzk-pixel-font.takwolf.com',
         }
-        alphabet, design_file_paths = _collect_available_design([
+        alphabet, design_file_paths = _collect_design_files([
             f'assets/design/{px}/',
             f'outputs/png/asc/{px}/',
             f'outputs/png/hzk/{px}/',
