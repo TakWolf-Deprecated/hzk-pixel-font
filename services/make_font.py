@@ -48,7 +48,7 @@ def _convert_point_to_open_type(point, ascent):
     return x, y
 
 
-def _draw_glyph(design_file_path, em_dot_size, ascent, is_ttf):
+def _draw_glyph(design_file_path, ascent, is_ttf):
     logger.info(f'draw glyph by design file {design_file_path}')
     font_data, width, height = glyph_util.load_design_data_from_png(design_file_path)
     outlines = glyph_util.get_outlines_from_design_data(font_data, em_dot_size)
@@ -84,9 +84,9 @@ def _create_font_builder(name_strings, units_per_em, ascent, descent, glyph_orde
     builder.setupCharacterMap(character_map)
     glyphs = {}
     advance_widths = {}
-    glyphs['.notdef'], advance_widths['.notdef'] = _draw_glyph(design_file_paths['.notdef'], em_dot_size, ascent, is_ttf)
+    glyphs['.notdef'], advance_widths['.notdef'] = _draw_glyph(design_file_paths['.notdef'], ascent, is_ttf)
     for code_point, glyph_name in character_map.items():
-        glyphs[glyph_name], advance_widths[glyph_name] = _draw_glyph(design_file_paths[code_point], em_dot_size, ascent, is_ttf)
+        glyphs[glyph_name], advance_widths[glyph_name] = _draw_glyph(design_file_paths[code_point], ascent, is_ttf)
     if is_ttf:
         builder.setupGlyf(glyphs)
         metrics = {glyph_name: (advance_width, glyphs[glyph_name].xMin) for glyph_name, advance_width in advance_widths.items()}
