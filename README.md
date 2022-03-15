@@ -2,7 +2,10 @@
 
 本字体的字模无法提供明确的来源出处和版权许可证。
 
-如果你正在寻找可以免费商用的开源像素字体，请尝试 [方舟像素字体](https://github.com/TakWolf/ark-pixel-font) 。
+如果你正在寻找可以免费商用的开源像素字体，请尝试下面的项目：
+
+- [方舟像素字体](https://github.com/TakWolf/ark-pixel-font)
+- [缝合怪像素字体](https://github.com/TakWolf/fusion-pixel-font)
 
 # 汉字库像素字体 / HZK Pixel Font
 
