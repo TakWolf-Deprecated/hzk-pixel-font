@@ -22,18 +22,20 @@ def _collect_design_files(design_dirs):
     alphabet = set()
     design_file_paths = {}
     for design_dir in design_dirs:
+        if not os.path.isdir(design_dir):
+            continue
         for design_file_parent_dir, _, design_file_names in os.walk(design_dir):
             for design_file_name in design_file_names:
-                if design_file_name.endswith('.png'):
-                    design_file_path = os.path.join(design_file_parent_dir, design_file_name)
-                    uni_hex_name = design_file_name.replace('.png', '')
-                    if uni_hex_name == 'notdef':
-                        design_file_paths['.notdef'] = design_file_path
-                    else:
-                        code_point = int(uni_hex_name, 16)
-                        if chr(code_point).isprintable():
-                            design_file_paths[code_point] = design_file_path
-                            alphabet.add(chr(code_point))
+                if not design_file_name.endswith('.png'):
+                    continue
+                design_file_path = os.path.join(design_file_parent_dir, design_file_name)
+                uni_hex_name = design_file_name.replace('.png', '')
+                if uni_hex_name == 'notdef':
+                    design_file_paths['.notdef'] = design_file_path
+                else:
+                    code_point = int(uni_hex_name, 16)
+                    design_file_paths[code_point] = design_file_path
+                    alphabet.add(chr(code_point))
     alphabet = list(alphabet)
     alphabet.sort(key=lambda c: ord(c))
     return alphabet, design_file_paths
