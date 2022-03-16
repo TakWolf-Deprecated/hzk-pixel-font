@@ -25,7 +25,7 @@
 
 ![preview-16px.png](docs/preview-16px.png)
 
-[点击这里查看在线示例文本](https://hzk-pixel-font.takwolf.com)
+[在线示例文本](https://hzk-pixel-font.takwolf.com)
 
 ## 下载
 
