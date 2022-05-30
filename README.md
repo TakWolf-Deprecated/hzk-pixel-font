@@ -7,6 +7,10 @@
 - [方舟像素字体](https://github.com/TakWolf/ark-pixel-font)
 - [缝合怪像素字体](https://github.com/TakWolf/fusion-pixel-font)
 
+**醒目：**
+
+该字体目前正在进行补全计划，详情见： https://github.com/TakWolf/hzk-pixel-font/issues/1
+
 # 汉字库像素字体 / HZK Pixel Font
 
 中文像素字体，支持 12 和 16 像素尺寸。
@@ -35,7 +39,7 @@
 
 ### 字体
 
-本字体使用的字模来源于：[https://github.com/aguegu/BitmapFont/tree/master/font](https://github.com/aguegu/BitmapFont/tree/master/font)
+本字体使用的字模来源于：https://github.com/aguegu/BitmapFont/tree/master/font
 
 根据 [原项目作者博客描述](https://web.archive.org/web/20161108093925/http://aguegu.net/?p=1279) ，该字模可能来源于 UCDOS ，或是早期的 WPS 。
 
