@@ -80,8 +80,10 @@ def _draw_glyph(design_file_path, ascent, is_ttf):
         return pen.getCharString(), advance_width
 
 
-def _create_font_builder(name_strings, units_per_em, ascent, descent, glyph_order, character_map, design_file_paths, is_ttf):
+def _create_font_builder(name_strings, vertical_metrics, glyph_order, character_map, design_file_paths, is_ttf):
+    units_per_em, ascent, descent, x_height, cap_height = vertical_metrics
     builder = FontBuilder(units_per_em, isTTF=is_ttf)
+    builder.setupNameTable(name_strings)
     builder.setupGlyphOrder(glyph_order)
     builder.setupCharacterMap(character_map)
     glyphs = {}
@@ -91,14 +93,13 @@ def _create_font_builder(name_strings, units_per_em, ascent, descent, glyph_orde
         glyphs[glyph_name], advance_widths[glyph_name] = _draw_glyph(design_file_paths[code_point], ascent, is_ttf)
     if is_ttf:
         builder.setupGlyf(glyphs)
-        metrics = {glyph_name: (advance_width, glyphs[glyph_name].xMin) for glyph_name, advance_width in advance_widths.items()}
+        horizontal_metrics = {glyph_name: (advance_width, glyphs[glyph_name].xMin) for glyph_name, advance_width in advance_widths.items()}
     else:
         builder.setupCFF(name_strings['psName'], {'FullName': name_strings['fullName']}, glyphs, {})
-        metrics = {glyph_name: (advance_width, glyphs[glyph_name].calcBounds(None)[0]) for glyph_name, advance_width in advance_widths.items()}
-    builder.setupHorizontalMetrics(metrics)
+        horizontal_metrics = {glyph_name: (advance_width, glyphs[glyph_name].calcBounds(None)[0]) for glyph_name, advance_width in advance_widths.items()}
+    builder.setupHorizontalMetrics(horizontal_metrics)
     builder.setupHorizontalHeader(ascent=ascent, descent=descent)
-    builder.setupNameTable(name_strings)
-    builder.setupOS2(sTypoAscender=ascent, usWinAscent=ascent, usWinDescent=-descent)
+    builder.setupOS2(sTypoAscender=ascent, sTypoDescender=descent, usWinAscent=ascent, usWinDescent=-descent, sxHeight=x_height, sCapHeight=cap_height)
     builder.setupPost()
     return builder
 
@@ -118,10 +119,13 @@ def _make_preview_image_file(px):
 def run():
     if not os.path.exists(outputs_dir):
         os.makedirs(outputs_dir)
-    for px, ascent_px, descent_px in [(12, 9, -3), (16, 12, -4)]:
+    for px, ascent_px, descent_px, x_height_px, cap_height_px in [(12, 9, -3, 6, 8), (16, 12, -4, 7, 10)]:
         units_per_em = px * em_dot_size
         ascent = ascent_px * em_dot_size
         descent = descent_px * em_dot_size
+        x_height = x_height_px * em_dot_size
+        cap_height = cap_height_px * em_dot_size
+        vertical_metrics = units_per_em, ascent, descent, x_height, cap_height
         display_name = f'HZK Pixel {px}px'
         unique_name = f'HZK-Pixel-{px}px'
         style_name = 'Regular'
@@ -148,13 +152,13 @@ def run():
             glyph_name = f'uni{code_point:04X}'
             glyph_order.append(glyph_name)
             character_map[code_point] = glyph_name
-        otf_builder = _create_font_builder(name_strings, units_per_em, ascent, descent, glyph_order, character_map, design_file_paths, False)
+        otf_builder = _create_font_builder(name_strings, vertical_metrics, glyph_order, character_map, design_file_paths, False)
         otf_builder.save(os.path.join(outputs_dir, f'hzk-pixel-{px}px.otf'))
         logger.info(f'make {px}px otf')
         otf_builder.font.flavor = 'woff2'
         otf_builder.save(os.path.join(outputs_dir, f'hzk-pixel-{px}px.woff2'))
         logger.info(f'make {px}px woff2')
-        ttf_builder = _create_font_builder(name_strings, units_per_em, ascent, descent, glyph_order, character_map, design_file_paths, True)
+        ttf_builder = _create_font_builder(name_strings, vertical_metrics, glyph_order, character_map, design_file_paths, True)
         ttf_builder.save(os.path.join(outputs_dir, f'hzk-pixel-{px}px.ttf'))
         logger.info(f'make {px}px ttf')
         _make_preview_image_file(px)
