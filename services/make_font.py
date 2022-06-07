@@ -129,7 +129,7 @@ def run():
         display_name = f'HZK Pixel {px}px'
         unique_name = f'HZK-Pixel-{px}px'
         style_name = 'Regular'
-        version = '1.1.0'
+        version = '1.2.0'
         name_strings = {
             'familyName': display_name,
             'styleName': style_name,
