@@ -20,7 +20,7 @@ git_branch_name = 'gh-pages'
 
 def _copy_files(file_names, from_dir, to_dir):
     for file_name in file_names:
-        shutil.copy(os.path.join(from_dir, file_name), os.path.join(to_dir, file_name))
+        shutil.copyfile(os.path.join(from_dir, file_name), os.path.join(to_dir, file_name))
 
 
 def _publish_docs():
