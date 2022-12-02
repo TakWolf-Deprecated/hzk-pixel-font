@@ -1,7 +1,7 @@
 Brotli==1.0.9
-fonttools==4.33.3
-gitdb==4.0.9
-GitPython==3.1.27
-Pillow==9.1.1
-pypng==0.0.21
+fonttools==4.38.0
+gitdb==4.0.10
+GitPython==3.1.29
+Pillow==9.3.0
+pypng==0.20220715.0
 smmap==5.0.0
