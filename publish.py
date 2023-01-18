@@ -1,7 +1,7 @@
+import datetime
 import logging
 import os
 import shutil
-import time
 
 import git
 
@@ -57,7 +57,7 @@ def _publish_www():
 
     repo = git.Repo.init(www_dir)
     repo.git.add(all=True)
-    repo.git.commit(m=f'deployed at {time.strftime("%Y-%m-%d %H-%M-%S")}')
+    repo.git.commit(m=f'deployed at {datetime.datetime.utcnow().replace(tzinfo=datetime.timezone.utc).isoformat()}')
     repo.git.remote('add', git_remote_name, git_url)
     current_branch_name = repo.git.branch(show_current=True)
     repo.git.push(git_remote_name, f'{current_branch_name}:{git_branch_name}', '-f')
