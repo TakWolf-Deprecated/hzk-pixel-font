@@ -1,48 +1,58 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <title>HZK Pixel Font</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>汉字库像素字体 / HZK Pixel Font</title>
     <style>
-        body {
-            padding: 50px 200px;
-            color: #4b4b4b;
-            background-color: beige;
-        }
         @font-face {
-            font-family: HZK12;
+            font-family: HZK-12px;
             src: url("hzk-pixel-12px.woff2");
         }
         @font-face {
-            font-family: HZK16;
+            font-family: HZK-16px;
             src: url("hzk-pixel-16px.woff2");
         }
-        .title-12px {
-            font-family: HZK12, sans-serif;
+        body {
+            padding: 64px 192px;
+            color: #4b4b4b;
+            background-color: beige;
+        }
+        @media screen and (max-width: 1024px) {
+            body {
+                padding: 64px 64px;
+            }
+        }
+        @media screen and (max-width: 750px) {
+            body {
+                padding: 64px 16px;
+            }
+        }
+        .font-12px {
+            font-family: HZK-12px, serif;
+            letter-spacing: 1px;
+        }
+        .font-12px .title {
             font-size: 36px;
             font-weight: normal;
             line-height: 48px;
-            letter-spacing: 1px;
         }
-        .content-12px {
-            font-family: HZK12, sans-serif;
+        .font-12px .content {
             font-size: 24px;
             line-height: 36px;
+        }
+        .font-16px {
+            font-family: HZK-16px, serif;
             letter-spacing: 1px;
         }
-        .title-16px {
-            font-family: HZK16, sans-serif;
+        .font-16px .title {
             font-size: 48px;
             font-weight: normal;
             line-height: 64px;
-            letter-spacing: 1px;
         }
-        .content-16px {
-            font-family: HZK16, sans-serif;
+        .font-16px .content {
             font-size: 32px;
             line-height: 48px;
-            letter-spacing: 1px;
         }
     </style>
 
@@ -69,41 +79,49 @@
     </script>
 </head>
 <body>
-<h1 class="title-16px">汉字库像素字体 / HZK Pixel Font</h1>
-<p class="content-12px">项目地址：<a href="https://github.com/TakWolf/hzk-pixel-font">https://github.com/TakWolf/hzk-pixel-font</a></p>
+<div class="font-16px">
+    <h1 class="title">汉字库像素字体 / HZK Pixel Font</h1>
+</div>
+<div class="font-12px">
+    <p class="content">项目地址：<a href="https://github.com/TakWolf/hzk-pixel-font">https://github.com/TakWolf/hzk-pixel-font</a></p>
+</div>
 <br>
-<p class="content-12px">12像素示例文本：</p>
-<h1 class="title-12px">任天堂</h1>
-<a class="content-12px" href="https://zh.wikipedia.org/wiki/%E4%BB%BB%E5%A4%A9%E5%A0%82">https://zh.wikipedia.org/wiki/%E4%BB%BB%E5%A4%A9%E5%A0%82</a>
-<p class="content-12px">任天堂是一家主要从事电子游戏和玩具的开发、制造与发行的日本公司。于1889年在日本京都创立，至今公司总部仍设于京都。任天堂最初以生产花札起家，1970年代后期投入电子游戏产业，在1983年推出家用游戏机 Family Computer（俗称红白机）、及在1985年推出游戏软件《超级马力欧兄弟》后，逐渐成为世界知名的电子游戏开发商。随着电子游戏事业的成功，任天堂亦向日本以外地区发展，现已有任天堂（美国）、任天堂（香港）等多家海外子公司。</p>
-<p class="content-12px">任天堂已开发的家用游戏机包括Color TV-Game、Family Computer、Super Famicom、任天堂64、任天堂GameCube、Wii和Wii U，而掌上游戏机则包括Game & Watch、Game Boy系列、任天堂DS系列和任天堂3DS系列（包括定位是掌上游戏机，但属于桌面台式游戏机的Virtual Boy），此外还有最新的便携式家用游戏机任天堂Switch和掌上型游戏机任天堂Switch Lite。 任天堂本公司及第二方（包括控股子公司以及参股公司）开发了许多知名游戏系列与作品；亦创造了众多知名虚拟游戏角色。 自1983年红白机发售起至2018年初，任天堂已在全球售出超过45亿份游戏软件，超过7.2亿台游戏主机（包括家用游戏机和掌上游戏机）。</p>
-<h1 class="title-12px">任天堂株式会社</h1>
-<a class="content-12px" href="https://ja.wikipedia.org/wiki/%E4%BB%BB%E5%A4%A9%E5%A0%82">https://ja.wikipedia.org/wiki/%E4%BB%BB%E5%A4%A9%E5%A0%82</a>
-<p class="content-12px">任天堂株式会社（にんてんどう、英: Nintendo Co., Ltd.）は、主に玩具やコンピュータゲームの開発・製造・販売を行う日本の企業。TOPIX Core30の構成銘柄の一つである。</p>
-<p class="content-12px">明治時代の1889年に創業した老舗企業で、娯楽に関する様々な事業を展開している。創業以来、多くの種類の玩具を製作しており、特に花札やトランプは創業初期から現在に至るまで製造・販売を続けている。</p>
-<p class="content-12px">1970年代後期からは家庭用と業務用のコンピュータゲーム機の開発を開始。1983年発売の据置型ゲーム機「ファミリーコンピュータ」のゲームソフトとして1985年に発売した『スーパーマリオブラザーズ』は世界的にヒットし、任天堂はゲーム機やゲームソフトを開発する会社として広く認知されるようになった。</p>
-<p class="content-12px">『スーパーマリオブラザーズ』の主人公「マリオ」など、任天堂のゲームソフトに登場するキャラクターは世界で知られているものが多く、2010年代からはキャラクターIPのゲーム外での活用を進めている。</p>
-<h1 class="title-12px">Nintendo</h1>
-<a class="content-12px" href="https://en.wikipedia.org/wiki/Nintendo">https://en.wikipedia.org/wiki/Nintendo</a>
-<p class="content-12px">Nintendo Co., Ltd. is a Japanese multinational consumer electronics and video game company headquartered in Kyoto. The company was founded in 1889 as Nintendo Karuta by craftsman Fusajiro Yamauchi and originally produced handmade hanafuda playing cards. After venturing into various lines of business during the 1960s and acquiring a legal status as a public company under the current company name, Nintendo distributed its first video game console, the Color TV-Game, in 1977. It gained international recognition with the release of the Nintendo Entertainment System in 1985.</p>
-<p class="content-12px">Since then, Nintendo has produced some of the most successful consoles in the video game industry, such as the Game Boy, the Super Nintendo Entertainment System, the Nintendo DS, the Wii, and the Nintendo Switch. It has created numerous major franchises, including Mario, Donkey Kong, The Legend of Zelda, Pokémon, Kirby, Metroid, Fire Emblem, Animal Crossing, Splatoon, Star Fox, Xenoblade Chronicles, and Super Smash Bros.</p>
-<p class="content-12px">Nintendo has multiple subsidiaries in Japan and abroad, in addition to business partners such as The Pokémon Company and HAL Laboratory. Nintendo and its staff has received awards including Emmy Awards for Technology & Engineering, Game Awards, Game Developers Choice Awards and British Academy Games Awards. It is one of the wealthiest and most valuable companies in the Japanese market.</p>
+<div class="font-12px">
+    <p class="content">12像素示例文本：</p>
+    <h1 class="title">任天堂</h1>
+    <a class="content" href="https://zh.wikipedia.org/zh-cn/%E4%BB%BB%E5%A4%A9%E5%A0%82" target="_blank">https://zh.wikipedia.org/zh-cn/%E4%BB%BB%E5%A4%A9%E5%A0%82</a>
+    <p class="content">任天堂（日语：任天堂／にんてんどう）是一家主要从事电子游戏的开发、制造与发行的日本百年企业。于1889年在日本京都市创立，最初以生产花札（赌博用的手牌）起家，后续也尝试多种行业，1970年代后期投入电子游戏产业，在掌上游戏机“Game & Watch”与街机游戏《大金刚》获取商业成功后，娱乐事业也逐渐大众化而走上正途，于1983年推出家用游戏机“Family Computer”与在1985年推出游戏《超级马力欧兄弟》亦获取空前的成功，且旗下有多个著名IP，包括塞尔达传说、宝可梦和动物森友会等，为世界知名的电子游戏主机与软件开发商，亦是世界目前游戏机三大生产商之一。</p>
+    <p class="content">任天堂由山内房治郎于1889年9月23日成立，最初主要是生产花札纸牌，此后一直维持此种经营方式至1960年代。此后任天堂进行了一系列业务多样化尝试，其中包括组建出租车公司、经营宾馆和出售真空吸尘器等等。1970年代，任天堂最终进入电视游戏业务，确定了作为玩具厂商的地位，并推出了“Ultra Band”、“光线枪SP”等热门商品。1980年，发售掌上游戏机“Game & Watch”，获取巨大成功。1983年，发售“Family Computer”。1985年，其在FC上推出的游戏《超级马力欧兄弟》获取极大成功，在全世界范围内受到巨大欢迎。任天堂由此奠定了在游戏市场的不败地位。截至2008年，从游戏软件销售的比率上看，无论是日本国内还是全世界范围内，均占据第一的位置。截至2010年，现有游戏硬件的销售量无论掌机还是家用机，均列世界第一。同时，其并未放弃传统的玩具生产，且在这一领域的发展规模在同业厂商中亦属最大级别。任天堂亦曾长时间持有美国职棒大联盟的西雅图水手队。</p>
+    <p class="content">公司自身并不拥有游戏机制造工厂。以前是由位于日本国内的外包厂商的工厂进行生产与组装，而现在则是在位于中国大陆的生产合作工厂（鸿海科技集团下属之鸿海精密工业）进行制造。</p>
+    <p class="content">任天堂自社开发的游戏中有近百款在日本地区获取了百万以上销量。此外在日本以外地区亦有相当大的影响力，许多游戏的全球销量可达到千万以上，例如Wii Sports的全球销量为8283万份。除了销售成绩良好之外，任天堂游戏在业界与玩家中均有良好的口碑。根据游戏评分汇总网站GameRankings的统计，史上汇总评分最高的电子游戏前五名均出自任天堂之手。</p>
+    <p class="content">任天堂一直维持着20%以上的利润率，在日本的大企业中绝无仅有。作为销售额超一兆日元的超大型企业，雇员仅有5,000人左右，所以每位雇员平均创造的销售额也很高（约为丰田汽车的5倍）。另外，其作为如此大规模的企业而不进行任何财界活动，可谓是特立独行。</p>
+    <p class="content">任天堂已开发的家用游戏机包括Color TV-Game、Family Computer、Super Famicom、任天堂64、任天堂GameCube、Wii和Wii U，而掌上游戏机则包括Game & Watch、Virtual Boy、Game Boy系列、任天堂DS系列和任天堂3DS系列、与可兼用家用和掌上游戏机功能的任天堂Switch和其衍伸掌上型游戏机任天堂Switch Lite。任天堂本公司及第二方（包括控股子公司以及参股公司）开发了许多知名游戏系列与作品；亦创造了众多知名虚拟游戏角色。</p>
+    <p class="content">自1983年机发售起至2018年初，任天堂已在全球售出超过45亿份游戏软件，超过7.2亿台家用和掌上型游戏主机。随着电子游戏事业的成功，任天堂亦向日本以外地区发展，现已在美国和香港等地有多家海外子公司。</p>
+    <h1 class="title">Nintendo</h1>
+    <a class="content" href="https://en.wikipedia.org/wiki/Nintendo" target="_blank">https://en.wikipedia.org/wiki/Nintendo</a>
+    <p class="content">Nintendo Co., Ltd. is a Japanese multinational video game company headquartered in Kyoto, Japan. It develops video games and video game consoles.</p>
+    <p class="content">Nintendo was founded in 1889 as Nintendo Karuta by craftsman Fusajiro Yamauchi and originally produced handmade hanafuda playing cards. After venturing into various lines of business during the 1960s and acquiring a legal status as a public company, Nintendo distributed its first console, the Color TV-Game, in 1977. It gained international recognition with the release of Donkey Kong in 1981 and the Nintendo Entertainment System and Super Mario Bros. in 1985.</p>
+    <p class="content">Since then, Nintendo has produced some of the most successful consoles in the video game industry, such as the Game Boy, the Super Nintendo Entertainment System, the Nintendo DS, the Wii, and the Switch. It has created numerous major franchises, including Mario, Donkey Kong, The Legend of Zelda, Pokémon, Kirby, Metroid, Fire Emblem, Animal Crossing, Splatoon, Star Fox, Xenoblade Chronicles, and Super Smash Bros. Nintendo's mascot, Mario, is internationally recognized. The company has sold more than 5.4 billion video games and over 800 million hardware units globally as of 2022.</p>
+    <p class="content">Nintendo has multiple subsidiaries in Japan and abroad, in addition to business partners such as The Pokémon Company and HAL Laboratory. Nintendo and its staff have received awards including Emmy Awards for Technology & Engineering, Game Awards, Game Developers Choice Awards, and British Academy Games Awards. It is one of the wealthiest and most valuable companies in the Japanese market.</p>
+</div>
 <br>
-<p class="content-16px">16像素示例文本：</p>
-<h1 class="title-16px">任天堂</h1>
-<a class="content-16px" href="https://zh.wikipedia.org/wiki/%E4%BB%BB%E5%A4%A9%E5%A0%82">https://zh.wikipedia.org/wiki/%E4%BB%BB%E5%A4%A9%E5%A0%82</a>
-<p class="content-16px">任天堂是一家主要从事电子游戏和玩具的开发、制造与发行的日本公司。于1889年在日本京都创立，至今公司总部仍设于京都。任天堂最初以生产花札起家，1970年代后期投入电子游戏产业，在1983年推出家用游戏机 Family Computer（俗称红白机）、及在1985年推出游戏软件《超级马力欧兄弟》后，逐渐成为世界知名的电子游戏开发商。随着电子游戏事业的成功，任天堂亦向日本以外地区发展，现已有任天堂（美国）、任天堂（香港）等多家海外子公司。</p>
-<p class="content-16px">任天堂已开发的家用游戏机包括Color TV-Game、Family Computer、Super Famicom、任天堂64、任天堂GameCube、Wii和Wii U，而掌上游戏机则包括Game & Watch、Game Boy系列、任天堂DS系列和任天堂3DS系列（包括定位是掌上游戏机，但属于桌面台式游戏机的Virtual Boy），此外还有最新的便携式家用游戏机任天堂Switch和掌上型游戏机任天堂Switch Lite。 任天堂本公司及第二方（包括控股子公司以及参股公司）开发了许多知名游戏系列与作品；亦创造了众多知名虚拟游戏角色。 自1983年红白机发售起至2018年初，任天堂已在全球售出超过45亿份游戏软件，超过7.2亿台游戏主机（包括家用游戏机和掌上游戏机）。</p>
-<h1 class="title-16px">任天堂株式会社</h1>
-<a class="content-16px" href="https://ja.wikipedia.org/wiki/%E4%BB%BB%E5%A4%A9%E5%A0%82">https://ja.wikipedia.org/wiki/%E4%BB%BB%E5%A4%A9%E5%A0%82</a>
-<p class="content-16px">任天堂株式会社（にんてんどう、英: Nintendo Co., Ltd.）は、主に玩具やコンピュータゲームの開発・製造・販売を行う日本の企業。TOPIX Core30の構成銘柄の一つである。</p>
-<p class="content-16px">明治時代の1889年に創業した老舗企業で、娯楽に関する様々な事業を展開している。創業以来、多くの種類の玩具を製作しており、特に花札やトランプは創業初期から現在に至るまで製造・販売を続けている。</p>
-<p class="content-16px">1970年代後期からは家庭用と業務用のコンピュータゲーム機の開発を開始。1983年発売の据置型ゲーム機「ファミリーコンピュータ」のゲームソフトとして1985年に発売した『スーパーマリオブラザーズ』は世界的にヒットし、任天堂はゲーム機やゲームソフトを開発する会社として広く認知されるようになった。</p>
-<p class="content-16px">『スーパーマリオブラザーズ』の主人公「マリオ」など、任天堂のゲームソフトに登場するキャラクターは世界で知られているものが多く、2010年代からはキャラクターIPのゲーム外での活用を進めている。</p>
-<h1 class="title-16px">Nintendo</h1>
-<a class="content-16px" href="https://en.wikipedia.org/wiki/Nintendo">https://en.wikipedia.org/wiki/Nintendo</a>
-<p class="content-16px">Nintendo Co., Ltd. is a Japanese multinational consumer electronics and video game company headquartered in Kyoto. The company was founded in 1889 as Nintendo Karuta by craftsman Fusajiro Yamauchi and originally produced handmade hanafuda playing cards. After venturing into various lines of business during the 1960s and acquiring a legal status as a public company under the current company name, Nintendo distributed its first video game console, the Color TV-Game, in 1977. It gained international recognition with the release of the Nintendo Entertainment System in 1985.</p>
-<p class="content-16px">Since then, Nintendo has produced some of the most successful consoles in the video game industry, such as the Game Boy, the Super Nintendo Entertainment System, the Nintendo DS, the Wii, and the Nintendo Switch. It has created numerous major franchises, including Mario, Donkey Kong, The Legend of Zelda, Pokémon, Kirby, Metroid, Fire Emblem, Animal Crossing, Splatoon, Star Fox, Xenoblade Chronicles, and Super Smash Bros.</p>
-<p class="content-16px">Nintendo has multiple subsidiaries in Japan and abroad, in addition to business partners such as The Pokémon Company and HAL Laboratory. Nintendo and its staff has received awards including Emmy Awards for Technology & Engineering, Game Awards, Game Developers Choice Awards and British Academy Games Awards. It is one of the wealthiest and most valuable companies in the Japanese market.</p>
+<div class="font-16px">
+    <p class="content">16像素示例文本：</p>
+    <h1 class="title">任天堂</h1>
+    <a class="content" href="https://zh.wikipedia.org/zh-cn/%E4%BB%BB%E5%A4%A9%E5%A0%82" target="_blank">https://zh.wikipedia.org/zh-cn/%E4%BB%BB%E5%A4%A9%E5%A0%82</a>
+    <p class="content">任天堂（日语：任天堂／にんてんどう）是一家主要从事电子游戏的开发、制造与发行的日本百年企业。于1889年在日本京都市创立，最初以生产花札（赌博用的手牌）起家，后续也尝试多种行业，1970年代后期投入电子游戏产业，在掌上游戏机“Game & Watch”与街机游戏《大金刚》获取商业成功后，娱乐事业也逐渐大众化而走上正途，于1983年推出家用游戏机“Family Computer”与在1985年推出游戏《超级马力欧兄弟》亦获取空前的成功，且旗下有多个著名IP，包括塞尔达传说、宝可梦和动物森友会等，为世界知名的电子游戏主机与软件开发商，亦是世界目前游戏机三大生产商之一。</p>
+    <p class="content">任天堂由山内房治郎于1889年9月23日成立，最初主要是生产花札纸牌，此后一直维持此种经营方式至1960年代。此后任天堂进行了一系列业务多样化尝试，其中包括组建出租车公司、经营宾馆和出售真空吸尘器等等。1970年代，任天堂最终进入电视游戏业务，确定了作为玩具厂商的地位，并推出了“Ultra Band”、“光线枪SP”等热门商品。1980年，发售掌上游戏机“Game & Watch”，获取巨大成功。1983年，发售“Family Computer”。1985年，其在FC上推出的游戏《超级马力欧兄弟》获取极大成功，在全世界范围内受到巨大欢迎。任天堂由此奠定了在游戏市场的不败地位。截至2008年，从游戏软件销售的比率上看，无论是日本国内还是全世界范围内，均占据第一的位置。截至2010年，现有游戏硬件的销售量无论掌机还是家用机，均列世界第一。同时，其并未放弃传统的玩具生产，且在这一领域的发展规模在同业厂商中亦属最大级别。任天堂亦曾长时间持有美国职棒大联盟的西雅图水手队。</p>
+    <p class="content">公司自身并不拥有游戏机制造工厂。以前是由位于日本国内的外包厂商的工厂进行生产与组装，而现在则是在位于中国大陆的生产合作工厂（鸿海科技集团下属之鸿海精密工业）进行制造。</p>
+    <p class="content">任天堂自社开发的游戏中有近百款在日本地区获取了百万以上销量。此外在日本以外地区亦有相当大的影响力，许多游戏的全球销量可达到千万以上，例如Wii Sports的全球销量为8283万份。除了销售成绩良好之外，任天堂游戏在业界与玩家中均有良好的口碑。根据游戏评分汇总网站GameRankings的统计，史上汇总评分最高的电子游戏前五名均出自任天堂之手。</p>
+    <p class="content">任天堂一直维持着20%以上的利润率，在日本的大企业中绝无仅有。作为销售额超一兆日元的超大型企业，雇员仅有5,000人左右，所以每位雇员平均创造的销售额也很高（约为丰田汽车的5倍）。另外，其作为如此大规模的企业而不进行任何财界活动，可谓是特立独行。</p>
+    <p class="content">任天堂已开发的家用游戏机包括Color TV-Game、Family Computer、Super Famicom、任天堂64、任天堂GameCube、Wii和Wii U，而掌上游戏机则包括Game & Watch、Virtual Boy、Game Boy系列、任天堂DS系列和任天堂3DS系列、与可兼用家用和掌上游戏机功能的任天堂Switch和其衍伸掌上型游戏机任天堂Switch Lite。任天堂本公司及第二方（包括控股子公司以及参股公司）开发了许多知名游戏系列与作品；亦创造了众多知名虚拟游戏角色。</p>
+    <p class="content">自1983年机发售起至2018年初，任天堂已在全球售出超过45亿份游戏软件，超过7.2亿台家用和掌上型游戏主机。随着电子游戏事业的成功，任天堂亦向日本以外地区发展，现已在美国和香港等地有多家海外子公司。</p>
+    <h1 class="title">Nintendo</h1>
+    <a class="content" href="https://en.wikipedia.org/wiki/Nintendo" target="_blank">https://en.wikipedia.org/wiki/Nintendo</a>
+    <p class="content">Nintendo Co., Ltd. is a Japanese multinational video game company headquartered in Kyoto, Japan. It develops video games and video game consoles.</p>
+    <p class="content">Nintendo was founded in 1889 as Nintendo Karuta by craftsman Fusajiro Yamauchi and originally produced handmade hanafuda playing cards. After venturing into various lines of business during the 1960s and acquiring a legal status as a public company, Nintendo distributed its first console, the Color TV-Game, in 1977. It gained international recognition with the release of Donkey Kong in 1981 and the Nintendo Entertainment System and Super Mario Bros. in 1985.</p>
+    <p class="content">Since then, Nintendo has produced some of the most successful consoles in the video game industry, such as the Game Boy, the Super Nintendo Entertainment System, the Nintendo DS, the Wii, and the Switch. It has created numerous major franchises, including Mario, Donkey Kong, The Legend of Zelda, Pokémon, Kirby, Metroid, Fire Emblem, Animal Crossing, Splatoon, Star Fox, Xenoblade Chronicles, and Super Smash Bros. Nintendo's mascot, Mario, is internationally recognized. The company has sold more than 5.4 billion video games and over 800 million hardware units globally as of 2022.</p>
+    <p class="content">Nintendo has multiple subsidiaries in Japan and abroad, in addition to business partners such as The Pokémon Company and HAL Laboratory. Nintendo and its staff have received awards including Emmy Awards for Technology & Engineering, Game Awards, Game Developers Choice Awards, and British Academy Games Awards. It is one of the wealthiest and most valuable companies in the Japanese market.</p>
+</div>
 </body>
 </html>
