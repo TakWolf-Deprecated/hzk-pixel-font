@@ -1,6 +1,10 @@
 
 _block_offset = 0xA0
 
+alphabet_other_count = 682
+alphabet_level_1_count = 3755
+alphabet_level_2_count = 3008
+
 
 def query_chr(zone_1, zone_2):
     """
