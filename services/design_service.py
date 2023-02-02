@@ -9,11 +9,10 @@ logger = logging.getLogger('design-service')
 def collect_glyph_files(font_config):
     alphabet = set()
     glyph_file_paths = {}
-    glyphs_dirs = [
-        os.path.join(path_define.dump_dir, str(font_config.px)),
-        os.path.join(path_define.glyphs_dir, str(font_config.px)),
-    ]
-    for glyphs_dir in glyphs_dirs:
+    glyphs_dirs = [os.path.join(path_define.glyphs_dir, str(font_config.px))]
+    for source_name in font_config.source_names:
+        glyphs_dirs.append(os.path.join(path_define.dump_dir, source_name))
+    for glyphs_dir in reversed(glyphs_dirs):
         if not os.path.isdir(glyphs_dir):
             continue
         for glyph_file_dir, _, glyph_file_names in os.walk(glyphs_dir):

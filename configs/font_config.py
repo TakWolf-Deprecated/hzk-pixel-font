@@ -17,11 +17,12 @@ class VerticalMetrics:
 
 
 class FontConfig:
-    def __init__(self, px, box_origin_y_px, x_height_px, cap_height_px, dot_em_units=100):
+    def __init__(self, px, box_origin_y_px, x_height_px, cap_height_px, source_names, dot_em_units=100):
         self.px = px
         self.box_origin_y_px = box_origin_y_px
         self.x_height_px = x_height_px
         self.cap_height_px = cap_height_px
+        self.source_names = source_names
         self.dot_em_units = dot_em_units
 
         self.display_name = f'{display_name_prefix} {px}px'

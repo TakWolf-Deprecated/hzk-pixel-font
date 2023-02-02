@@ -5,10 +5,12 @@ import png
 from configs import path_define
 from utils import fs_util
 
-logger = logging.getLogger('dump-asc-12')
+font_name = 'ASC12'
 
-font_file_path = os.path.join(path_define.fonts_dir, 'ASC12')
-dump_dir = os.path.join(path_define.dump_dir, '12', 'asc')
+logger = logging.getLogger(f'dump-{font_name}')
+
+font_file_path = os.path.join(path_define.fonts_dir, font_name)
+dump_dir = os.path.join(path_define.dump_dir, font_name)
 glyph_bytes_length = int(8 * 12 / 8)
 
 

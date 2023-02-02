@@ -7,12 +7,14 @@ font_configs = [
         box_origin_y_px=9,
         x_height_px=6,
         cap_height_px=8,
+        source_names=['ASC12', 'HZK12'],
     ),
     FontConfig(
         px=16,
         box_origin_y_px=12,
         x_height_px=7,
         cap_height_px=10,
+        source_names=['ASC16', 'HZK16'],
     ),
 ]
 
