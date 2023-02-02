@@ -8,8 +8,8 @@ from utils import fs_util
 logger = logging.getLogger('dump-asc-12')
 
 font_file_path = os.path.join(path_define.fonts_dir, 'ASC12')
-dump_dir = os.path.join(path_define.dump_dir, str(12), 'asc')
-glyph_bytes_length = 8 * 12 // 8
+dump_dir = os.path.join(path_define.dump_dir, '12', 'asc')
+glyph_bytes_length = int(8 * 12 / 8)
 
 
 def _iter_ascii(font_file, num_start, num_stop):

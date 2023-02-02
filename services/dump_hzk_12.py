@@ -8,8 +8,8 @@ from utils import gb2312_util, fs_util
 logger = logging.getLogger('dump-hzk-12')
 
 font_file_path = os.path.join(path_define.fonts_dir, 'HZK12')
-dump_dir = os.path.join(path_define.dump_dir, str(12), 'hzk')
-glyph_bytes_length = 16 * 12 // 8
+dump_dir = os.path.join(path_define.dump_dir, '12', 'hzk')
+glyph_bytes_length = int(16 * 12 / 8)
 
 
 def _iter_gb2312(font_file, zone_start, zone_stop):
