@@ -7,7 +7,7 @@ from utils import fs_util
 
 logger = logging.getLogger('dump-asc-16')
 
-font_file_path = os.path.join(path_define.hzk_fonts_dir, 'ASC16')
+font_file_path = os.path.join(path_define.fonts_dir, 'ASC16')
 dump_dir = os.path.join(path_define.dump_dir, str(16), 'asc')
 glyph_bytes_length = 8 * 16 // 8
 

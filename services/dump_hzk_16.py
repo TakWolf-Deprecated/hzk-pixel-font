@@ -7,7 +7,7 @@ from utils import gb2312_util, fs_util
 
 logger = logging.getLogger('dump-hzk-16')
 
-font_file_path = os.path.join(path_define.hzk_fonts_dir, 'HZK16')
+font_file_path = os.path.join(path_define.fonts_dir, 'HZK16')
 dump_dir = os.path.join(path_define.dump_dir, str(16), 'hzk')
 glyph_bytes_length = 16 * 16 // 8
 

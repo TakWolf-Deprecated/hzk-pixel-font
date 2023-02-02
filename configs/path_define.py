@@ -4,7 +4,7 @@ project_root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 
 assets_dir = os.path.join(project_root_dir, 'assets')
 glyphs_dir = os.path.join(assets_dir, 'glyphs')
-hzk_fonts_dir = os.path.join(assets_dir, 'hzk-fonts')
+fonts_dir = os.path.join(assets_dir, 'fonts')
 www_static_dir = os.path.join(assets_dir, 'www-static')
 
 build_dir = os.path.join(project_root_dir, 'build')
