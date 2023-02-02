@@ -1,8 +1,8 @@
 **注意：**
 
-本字体字模并非公有领域，无法提供许可证。
+本字体字模版权并非公有领域，无法提供字体许可证。
 
-如果你正在寻找可以免费商用的开源像素字体，请尝试下面的项目：
+如果您正在寻找可以免费商用的开源中文像素字体，请尝试下列项目：
 
 - [方舟像素字体](https://github.com/TakWolf/ark-pixel-font)
 - [缝合怪像素字体](https://github.com/TakWolf/fusion-pixel-font)
@@ -13,13 +13,13 @@
 
 # 汉字库像素字体 / HZK Pixel Font
 
-中文像素字体，支持 12 和 16 像素尺寸。
-
-字符范围为：ASCII + GB2312
+中文像素字体，支持 12 和 16 像素。字符范围仅覆盖 ASCII 和 GB2312。
 
 这个项目提供了构建字体所需要的完整程序。
 
 ## 预览
+
+[在线预览](https://hzk-pixel-font.takwolf.com)
 
 12 像素预览：
 
@@ -29,11 +29,9 @@
 
 ![preview-16px.png](docs/preview-16px.png)
 
-[示例文本](https://hzk-pixel-font.takwolf.com)
-
 ## 下载
 
-[下载地址](https://github.com/TakWolf/hzk-pixel-font/releases)
+可在 [Releases](https://github.com/TakWolf/hzk-pixel-font/releases) 下载最新的版本。
 
 ## 授权信息
 
@@ -45,9 +43,9 @@
 
 经过我个人比对，这个字模应该出自早期的 Windows 系统字体。您可以通过 [这篇文章提供的截图](https://zhuanlan.zhihu.com/p/37334387) 自行比对。
 
-中文的部分应该是由「北京中易中标电子信息技术有限公司」开发制作，严格来说受到版权保护，并非公有领域。
+中文的部分应该是由「北京中易中标电子信息技术有限公司」设计开发，字模版权并非公有领域。
 
-因此，本字体不提供任何许可证。您在使用时，请务必谨慎考量并自负版权风险。
+因此，本字体无法提供许可证。您在使用时，请务必谨慎考量并自负版权风险。
 
 ### 构建程序
 
