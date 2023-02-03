@@ -2,7 +2,7 @@ import logging
 
 import configs
 from configs import path_define
-from services import dump_asc_12, dump_asc_16, dump_hzk_12, dump_hzk_16, design_service, font_service, image_service
+from services import dump_service, design_service, font_service, image_service
 from utils import fs_util
 
 logging.basicConfig(level=logging.DEBUG)
@@ -11,10 +11,8 @@ logging.basicConfig(level=logging.DEBUG)
 def main():
     fs_util.delete_dir(path_define.build_dir)
 
-    dump_asc_12.run()
-    dump_asc_16.run()
-    dump_hzk_12.run()
-    dump_hzk_16.run()
+    for dump_config in configs.dump_configs:
+        dump_service.dump_font(dump_config)
 
     for font_config in configs.font_configs:
         alphabet, glyph_file_paths = design_service.collect_glyph_files(font_config)
