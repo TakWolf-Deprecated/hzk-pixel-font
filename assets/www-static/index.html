@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>汉字库像素字体 / HZK Pixel Font</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         @font-face {
             font-family: HZK-12px;
             src: url("hzk-pixel-12px.woff2");
@@ -14,18 +19,25 @@
             src: url("hzk-pixel-16px.woff2");
         }
         body {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
             padding: 64px 192px;
             color: #4b4b4b;
             background-color: beige;
         }
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: 1006px) {
             body {
-                padding: 64px 64px;
+                width: 750px;
+                padding-left: 64px;
+                padding-right: 64px;
             }
         }
         @media screen and (max-width: 750px) {
             body {
-                padding: 64px 16px;
+                width: 100%;
+                padding-left: 64px;
+                padding-right: 64px;
             }
         }
         .font-12px {
@@ -33,11 +45,15 @@
             letter-spacing: 1px;
         }
         .font-12px .title {
+            margin-top: 24px;
+            margin-bottom: 12px;
             font-size: 36px;
             font-weight: normal;
             line-height: 48px;
         }
         .font-12px .content {
+            margin-top: 12px;
+            margin-bottom: 12px;
             font-size: 24px;
             line-height: 36px;
         }
@@ -46,11 +62,15 @@
             letter-spacing: 1px;
         }
         .font-16px .title {
+            margin-top: 32px;
+            margin-bottom: 16px;
             font-size: 48px;
             font-weight: normal;
             line-height: 64px;
         }
         .font-16px .content {
+            margin-top: 16px;
+            margin-bottom: 16px;
             font-size: 32px;
             line-height: 48px;
         }
