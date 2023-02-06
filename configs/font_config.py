@@ -17,13 +17,13 @@ class VerticalMetrics:
 
 
 class FontConfig:
-    def __init__(self, px, box_origin_y_px, x_height_px, cap_height_px, source_names, dot_em_units=100):
+    def __init__(self, px, box_origin_y_px, x_height_px, cap_height_px, source_names, px_units=100):
         self.px = px
         self.box_origin_y_px = box_origin_y_px
         self.x_height_px = x_height_px
         self.cap_height_px = cap_height_px
         self.source_names = source_names
-        self.dot_em_units = dot_em_units
+        self.px_units = px_units
 
         self.display_name = f'{display_name_prefix} {px}px'
         self.unique_name = f'{unique_name_prefix}-{px}px'
@@ -43,14 +43,14 @@ class FontConfig:
         }
 
     def get_units_per_em(self):
-        return self.px * self.dot_em_units
+        return self.px * self.px_units
 
     def get_box_origin_y(self):
-        return self.box_origin_y_px * self.dot_em_units
+        return self.box_origin_y_px * self.px_units
 
     def get_vertical_metrics(self):
-        ascent = self.box_origin_y_px * self.dot_em_units
-        descent = (self.box_origin_y_px - self.px) * self.dot_em_units
-        x_height = self.x_height_px * self.dot_em_units
-        cap_height = self.cap_height_px * self.dot_em_units
+        ascent = self.box_origin_y_px * self.px_units
+        descent = (self.box_origin_y_px - self.px) * self.px_units
+        x_height = self.x_height_px * self.px_units
+        cap_height = self.cap_height_px * self.px_units
         return VerticalMetrics(ascent, descent, x_height, cap_height)
