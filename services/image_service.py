@@ -12,8 +12,7 @@ logger = logging.getLogger('image-service')
 def make_preview_image_file(font_config):
     background_color = (255, 255, 255)
     text_color = (0, 0, 0)
-    font_file_path = os.path.join(path_define.outputs_dir, f'{font_config.output_name}.woff2')
-    font = ImageFont.truetype(font_file_path, font_config.px)
+    font = ImageFont.truetype(os.path.join(path_define.outputs_dir, f'{font_config.output_name}.woff2'), font_config.px)
 
     image = Image.new('RGBA', (font_config.px * 35, font_config.px * 11), background_color)
     draw = ImageDraw.Draw(image)
