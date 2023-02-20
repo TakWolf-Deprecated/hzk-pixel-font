@@ -34,10 +34,10 @@ class FontConfig:
         return {
             'familyName': self.display_name,
             'styleName': style_name,
-            'uniqueFontIdentifier': f'{self.unique_name};{version}',
+            'uniqueFontIdentifier': f'{self.unique_name}-{style_name};{version}',
             'fullName': self.display_name,
             'version': version,
-            'psName': self.unique_name,
+            'psName': f'{self.unique_name}-{style_name}',
             'description': description,
             'vendorURL': vendor_url,
         }
