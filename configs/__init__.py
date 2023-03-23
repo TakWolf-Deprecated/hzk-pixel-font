@@ -115,7 +115,7 @@ font_configs = [
 font_formats = ['otf', 'woff2', 'ttf']
 
 git_deploy_configs = [GitDeployConfig(
-    'git@github.com:TakWolf/hzk-pixel-font.git',
-    'github',
-    'gh-pages',
+    url='git@github.com:TakWolf/hzk-pixel-font.git',
+    remote_name='github',
+    branch_name='gh-pages',
 )]
