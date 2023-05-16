@@ -1,5 +1,6 @@
 fonttools==4.39.4
 Brotli==1.0.9
+character-encoding-utils==0.0.2
 pypng==0.20220715.0
 Pillow==9.5.0
 GitPython==3.1.31

@@ -2,8 +2,10 @@ import logging
 import os
 
 import png
+from character_encoding_utils import gb2312
+from character_encoding_utils.gb2312 import GB2312Exception
 
-from utils import fs_util, gb2312_util
+from utils import fs_util
 
 logger = logging.getLogger('dump-service')
 
@@ -43,16 +45,16 @@ def _dump_font_ascii(dump_config, font_file, num_start, num_stop):
 
 def _dump_font_gb2312(dump_config, font_file, zone_start, zone_stop):
     count = 0
-    for zone_1 in range(zone_start, zone_stop):
-        for zone_2 in range(1, 95):
+    for row in range(zone_start, zone_stop):
+        for col in range(1, 95):
             try:
-                c = gb2312_util.query_chr(zone_1, zone_2)
-                glyph_offset = ((zone_1 - 1) * 94 + (zone_2 - 1)) * dump_config.glyph_bytes_length
+                c = gb2312.query_chr(row, col)
+                glyph_offset = ((row - 1) * 94 + (col - 1)) * dump_config.glyph_bytes_length
                 font_file.seek(glyph_offset)
                 glyph_bytes = font_file.read(dump_config.glyph_bytes_length)
                 _dump_glyph(dump_config, c, glyph_bytes)
                 count += 1
-            except UnicodeDecodeError:
+            except GB2312Exception:
                 pass
     return count
 
@@ -64,8 +66,8 @@ def dump_font(dump_config):
         if dump_config.font_type == 'asc':
             _dump_font_ascii(dump_config, font_file, 0, 256)
         elif dump_config.font_type == 'hzk':
-            assert _dump_font_gb2312(dump_config, font_file, 1, 10) == gb2312_util.alphabet_other_count
-            assert _dump_font_gb2312(dump_config, font_file, 16, 56) == gb2312_util.alphabet_level_1_count
-            assert _dump_font_gb2312(dump_config, font_file, 56, 88) == gb2312_util.alphabet_level_2_count
+            assert _dump_font_gb2312(dump_config, font_file, 1, 10) == gb2312.get_other_count()
+            assert _dump_font_gb2312(dump_config, font_file, 16, 56) == gb2312.get_level_1_count()
+            assert _dump_font_gb2312(dump_config, font_file, 56, 88) == gb2312.get_level_2_count()
         else:
             raise Exception(f"Unknown font type: '{dump_config.font_type}'")
