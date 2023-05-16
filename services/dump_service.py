@@ -14,18 +14,18 @@ def _dump_glyph(dump_config, c, glyph_bytes):
     uni_hex_name = f'{ord(c):04X}'
     bitmap = []
     for row_index in range(dump_config.glyph_height):
-        row = []
+        bitmap_row = []
         for col_index in range(dump_config.glyph_col_bytes_length):
             byte = glyph_bytes[row_index * dump_config.glyph_col_bytes_length + col_index]
             for bit_index in range(dump_config.glyph_last_col_byte_bit_stop if col_index == dump_config.glyph_col_bytes_length - 1 else 8):
-                row.append(0)
-                row.append(0)
-                row.append(0)
+                bitmap_row.append(0)
+                bitmap_row.append(0)
+                bitmap_row.append(0)
                 if 0b1 << (7 - bit_index) & byte:
-                    row.append(255)
+                    bitmap_row.append(255)
                 else:
-                    row.append(0)
-        bitmap.append(row)
+                    bitmap_row.append(0)
+        bitmap.append(bitmap_row)
     image = png.from_array(bitmap, 'RGBA')
     image_file_path = os.path.join(dump_config.dump_dir, f'{uni_hex_name}.png')
     image.save(image_file_path)
