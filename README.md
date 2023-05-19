@@ -2,14 +2,10 @@
 
 本字体字模版权并非公有领域，无法提供字体许可证。
 
-如果您正在寻找可以免费商用的开源中文像素字体，请尝试下列项目：
+如果您正在寻找可以免费商用的开源中文像素字体，请尝试以下项目：
 
 - [方舟像素字体](https://github.com/TakWolf/ark-pixel-font)
 - [缝合怪像素字体](https://github.com/TakWolf/fusion-pixel-font)
-
-**醒目：**
-
-该字体目前正在进行补全计划，详情见： https://github.com/TakWolf/hzk-pixel-font/issues/1
 
 # 汉字库像素字体 / HZK Pixel Font
 
@@ -50,3 +46,12 @@
 ### 构建程序
 
 使用 [MIT 许可证](LICENSE) 授权。
+
+## 程序依赖
+
+- [FontTools](https://github.com/fonttools/fonttools)
+- [Brotli](https://github.com/google/brotli)
+- [Character Encoding Utils](https://github.com/TakWolf/character-encoding-utils)
+- [PyPNG](https://gitlab.com/drj11/pypng)
+- [Pillow](https://github.com/python-pillow/Pillow)
+- [GitPython](https://github.com/gitpython-developers/GitPython)
