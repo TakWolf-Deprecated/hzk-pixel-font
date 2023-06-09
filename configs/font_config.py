@@ -3,7 +3,7 @@ from typing import Final
 
 class FontConfig:
     FAMILY_NAME: Final[str] = 'HZK Pixel'
-    VERSION: Final[str] = '1.2.0'
+    VERSION: Final[str] = '1.3.0'
     DESCRIPTION: Final[str] = 'HZK pixel font.'
     VENDOR_URL: Final[str] = 'https://hzk-pixel-font.takwolf.com'
 
