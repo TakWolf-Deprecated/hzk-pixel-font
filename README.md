@@ -5,7 +5,7 @@
 如果您正在寻找可以免费商用的开源中文像素字体，请尝试以下项目：
 
 - [方舟像素字体](https://github.com/TakWolf/ark-pixel-font)
-- [缝合怪像素字体](https://github.com/TakWolf/fusion-pixel-font)
+- [缝合像素字体](https://github.com/TakWolf/fusion-pixel-font)
 
 # 汉字库像素字体 / HZK Pixel Font
 
@@ -49,8 +49,7 @@
 
 ## 程序依赖
 
-- [FontTools](https://github.com/fonttools/fonttools)
-- [Brotli](https://github.com/google/brotli)
+- [Pixel Font Builder](https://github.com/TakWolf/pixel-font-builder)
 - [Character Encoding Utils](https://github.com/TakWolf/character-encoding-utils)
 - [PyPNG](https://gitlab.com/drj11/pypng)
 - [Pillow](https://github.com/python-pillow/Pillow)

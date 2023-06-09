@@ -12,15 +12,15 @@ from utils import fs_util
 logger = logging.getLogger('publish-service')
 
 
-def _copy_file(file_name, from_dir, to_dir):
+def _copy_file(file_name: str, from_dir: str, to_dir: str):
     from_path = os.path.join(from_dir, file_name)
     to_path = os.path.join(to_dir, file_name)
     shutil.copyfile(from_path, to_path)
-    logger.info(f'copy from {from_path} to {to_path}')
+    logger.info(f"Copy from '{from_path}' to '{to_path}'")
 
 
 def update_docs():
-    fs_util.make_dirs_if_not_exists(path_define.docs_dir)
+    fs_util.make_dirs(path_define.docs_dir)
     for font_config in configs.font_configs:
         _copy_file(font_config.preview_image_file_name, path_define.outputs_dir, path_define.docs_dir)
 
@@ -29,7 +29,7 @@ def update_www():
     fs_util.delete_dir(path_define.www_dir)
     shutil.copytree(path_define.www_static_dir, path_define.www_dir)
     for font_config in configs.font_configs:
-        _copy_file(f'{font_config.output_name}.woff2', path_define.outputs_dir, path_define.www_dir)
+        _copy_file(f'{font_config.outputs_name}.woff2', path_define.outputs_dir, path_define.www_dir)
 
 
 def deploy_www():
