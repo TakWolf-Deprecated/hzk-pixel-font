@@ -32,8 +32,6 @@ def collect_glyph_files(font_config: FontConfig) -> tuple[dict[int, str], dict[s
     for source_name in font_config.source_names:
         glyphs_dirs.append(os.path.join(path_define.dump_dir, source_name))
     for glyphs_dir in reversed(glyphs_dirs):
-        if not os.path.isdir(glyphs_dir):
-            continue
         for glyph_file_dir, glyph_file_name in fs_util.walk_files(glyphs_dir):
             if not glyph_file_name.endswith('.png'):
                 continue
