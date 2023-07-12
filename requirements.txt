@@ -1,5 +1,5 @@
-pixel-font-builder==0.0.2
+pixel-font-builder==0.0.3
 character-encoding-utils==0.0.5
 pypng==0.20220715.0
-Pillow==9.5.0
-GitPython==3.1.31
+Pillow==10.0.0
+GitPython==3.1.32
