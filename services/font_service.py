@@ -1,28 +1,12 @@
 import logging
 import os
 
-import png
 from pixel_font_builder import FontBuilder, Glyph, StyleName, SerifMode, WidthMode
 
 from configs import path_define, FontConfig
-from utils import fs_util
+from utils import fs_util, glyph_util
 
 logger = logging.getLogger('font-service')
-
-
-def _load_glyph_data_from_png(file_path: str) -> tuple[list[list[int]], int, int]:
-    width, height, bitmap, _ = png.Reader(filename=file_path).read()
-    data = []
-    for bitmap_row in bitmap:
-        data_row = []
-        for x in range(0, width * 4, 4):
-            alpha = bitmap_row[x + 3]
-            if alpha > 127:
-                data_row.append(1)
-            else:
-                data_row.append(0)
-        data.append(data_row)
-    return data, width, height
 
 
 def collect_glyph_files(font_config: FontConfig) -> tuple[dict[int, str], dict[str, str]]:
@@ -58,7 +42,7 @@ def _create_builder(font_config: FontConfig, character_mapping: dict[int, str], 
 
     builder.character_mapping.update(character_mapping)
     for glyph_name, glyph_file_path in glyph_file_paths.items():
-        glyph_data, glyph_width, glyph_height = _load_glyph_data_from_png(glyph_file_path)
+        glyph_data, glyph_width, glyph_height = glyph_util.load_glyph_data_from_png(glyph_file_path)
         offset_y = font_config.box_origin_y + (glyph_height - font_config.size) // 2 - glyph_height
         builder.add_glyph(Glyph(
             name=glyph_name,

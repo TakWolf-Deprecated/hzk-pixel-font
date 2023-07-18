@@ -2,34 +2,30 @@ import logging
 import os
 from typing import IO
 
-import png
 from character_encoding_utils import gb2312
 from character_encoding_utils.gb2312 import GB2312Exception
 
 from configs import DumpConfig
-from utils import fs_util
+from utils import fs_util, glyph_util
 
 logger = logging.getLogger('dump-service')
 
 
 def _dump_glyph(dump_config: DumpConfig, c: str, glyph_bytes: bytes):
-    bitmap = []
+    glyph_data = []
     for row_index in range(dump_config.glyph_height):
-        bitmap_row = []
+        glyph_data_row = []
         for col_index in range(dump_config.glyph_col_bytes_length):
             b = glyph_bytes[row_index * dump_config.glyph_col_bytes_length + col_index]
             for bit_index in range(dump_config.glyph_last_col_byte_bit_stop if col_index == dump_config.glyph_col_bytes_length - 1 else 8):
-                bitmap_row.append(0)
-                bitmap_row.append(0)
-                bitmap_row.append(0)
                 if 0b1 << (7 - bit_index) & b:
-                    bitmap_row.append(255)
+                    glyph_data_row.append(1)
                 else:
-                    bitmap_row.append(0)
-        bitmap.append(bitmap_row)
+                    glyph_data_row.append(0)
+        glyph_data.append(glyph_data_row)
     hex_name = f'{ord(c): 04X}'
     file_path = os.path.join(dump_config.dump_dir, f'{hex_name}.png')
-    png.from_array(bitmap, 'RGBA').save(file_path)
+    glyph_util.save_glyph_data_to_png(glyph_data, file_path)
     logger.info(f'Dump {dump_config.font_name} {dump_config.glyph_width}*{dump_config.glyph_height} {c if c.isprintable() else " "} - {hex_name}')
 
 
