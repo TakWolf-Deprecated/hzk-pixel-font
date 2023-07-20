@@ -26,7 +26,7 @@ def _dump_glyph(dump_config: DumpConfig, c: str, glyph_bytes: bytes):
     hex_name = f'{ord(c): 04X}'
     file_path = os.path.join(dump_config.dump_dir, f'{hex_name}.png')
     glyph_util.save_glyph_data_to_png(glyph_data, file_path)
-    logger.info(f'Dump {dump_config.font_name} {dump_config.glyph_width}*{dump_config.glyph_height} {c if c.isprintable() else " "} - {hex_name}')
+    logger.info('Dump %s %d*%d %s - %s', dump_config.font_name, dump_config.glyph_width, dump_config.glyph_height, c if c.isprintable() else ' ', hex_name)
 
 
 def _dump_font_ascii(dump_config: DumpConfig, file: IO, num_start: int, num_end: int):

@@ -16,7 +16,7 @@ def _copy_file(file_name: str, from_dir: str, to_dir: str):
     from_path = os.path.join(from_dir, file_name)
     to_path = os.path.join(to_dir, file_name)
     shutil.copyfile(from_path, to_path)
-    logger.info(f"Copy from '{from_path}' to '{to_path}'")
+    logger.info("Copy from '%s' to '%s'", from_path, to_path)
 
 
 def update_docs():
