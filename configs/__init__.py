@@ -5,14 +5,16 @@ from configs.git_deploy_config import GitDeployConfig
 font_configs = [
     FontConfig(
         size=12,
-        box_origin_y=9,
+        ascent=9,
+        descent=-3,
         x_height=6,
         cap_height=8,
         source_names=['ASC12', 'HZK12'],
     ),
     FontConfig(
         size=16,
-        box_origin_y=12,
+        ascent=12,
+        descent=-4,
         x_height=7,
         cap_height=10,
         source_names=['ASC16', 'HZK16'],
