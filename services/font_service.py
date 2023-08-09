@@ -11,31 +11,40 @@ from utils import fs_util, glyph_util
 logger = logging.getLogger('font-service')
 
 
-def collect_glyph_files(font_config: FontConfig) -> tuple[dict[int, str], dict[str, str]]:
-    character_mapping = {}
-    glyph_file_paths = {}
-
-    glyphs_dirs = [os.path.join(path_define.glyphs_dir, str(font_config.size))]
+def collect_glyph_files(font_config: FontConfig) -> tuple[dict[int, str], list[tuple[str, str]]]:
+    root_dirs = [os.path.join(path_define.glyphs_dir, str(font_config.size))]
     for source_name in font_config.source_names:
-        glyphs_dirs.append(os.path.join(path_define.dump_dir, source_name))
+        root_dirs.append(os.path.join(path_define.dump_dir, source_name))
 
-    for glyphs_dir in reversed(glyphs_dirs):
-        for glyph_file_dir, glyph_file_name in fs_util.walk_files(glyphs_dir):
+    registry = {}
+    for root_dir in reversed(root_dirs):
+        for glyph_file_dir, glyph_file_name in fs_util.walk_files(root_dir):
             if not glyph_file_name.endswith('.png'):
                 continue
             glyph_file_path = os.path.join(glyph_file_dir, glyph_file_name)
             if glyph_file_name == 'notdef.png':
-                glyph_file_paths['.notdef'] = glyph_file_path
+                code_point = -1
             else:
                 code_point = int(glyph_file_name.removesuffix('.png'), 16)
-                glyph_name = f'uni{code_point:04X}'
-                character_mapping[code_point] = glyph_name
-                glyph_file_paths[glyph_name] = glyph_file_path
+            registry[code_point] = glyph_file_path
 
-    return character_mapping, glyph_file_paths
+    sequence = list(registry.keys())
+    sequence.sort()
+
+    character_mapping = {}
+    glyph_file_infos = []
+    for code_point in sequence:
+        if code_point == -1:
+            glyph_name = '.notdef'
+        else:
+            glyph_name = f'uni{code_point:04X}'
+            character_mapping[code_point] = glyph_name
+        glyph_file_infos.append((glyph_name, registry[code_point]))
+
+    return character_mapping, glyph_file_infos
 
 
-def _create_builder(font_config: FontConfig, character_mapping: dict[int, str], glyph_file_paths: dict[str, str]) -> FontBuilder:
+def _create_builder(font_config: FontConfig, character_mapping: dict[int, str], glyph_file_infos: list[tuple[str, str]]) -> FontBuilder:
     builder = FontBuilder()
 
     builder.metrics.size = font_config.size
@@ -54,7 +63,7 @@ def _create_builder(font_config: FontConfig, character_mapping: dict[int, str], 
 
     builder.character_mapping.update(character_mapping)
 
-    for glyph_name, glyph_file_path in glyph_file_paths.items():
+    for glyph_name, glyph_file_path in glyph_file_infos:
         glyph_data, glyph_width, glyph_height = glyph_util.load_glyph_data_from_png(glyph_file_path)
         offset_y = math.floor((font_config.ascent + font_config.descent - glyph_height) / 2)
         builder.glyphs.append(Glyph(
@@ -67,10 +76,10 @@ def _create_builder(font_config: FontConfig, character_mapping: dict[int, str], 
     return builder
 
 
-def make_font_files(font_config: FontConfig, character_mapping: dict[int, str], glyph_file_paths: dict[str, str]):
+def make_font_files(font_config: FontConfig, character_mapping: dict[int, str], glyph_file_infos: list[tuple[str, str]]):
     fs_util.make_dirs(path_define.outputs_dir)
 
-    builder = _create_builder(font_config, character_mapping, glyph_file_paths)
+    builder = _create_builder(font_config, character_mapping, glyph_file_infos)
 
     otf_file_path = os.path.join(path_define.outputs_dir, f'{font_config.outputs_name}.otf')
     builder.save_otf(otf_file_path)

@@ -15,8 +15,8 @@ def main():
         dump_service.dump_font(dump_config)
 
     for font_config in configs.font_configs:
-        character_mapping, glyph_file_paths = font_service.collect_glyph_files(font_config)
-        font_service.make_font_files(font_config, character_mapping, glyph_file_paths)
+        character_mapping, glyph_file_infos = font_service.collect_glyph_files(font_config)
+        font_service.make_font_files(font_config, character_mapping, glyph_file_infos)
         image_service.make_preview_image_file(font_config)
 
 
