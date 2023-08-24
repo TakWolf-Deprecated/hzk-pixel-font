@@ -1,11 +1,11 @@
-**注意：**
-
-本字体字模版权并非公有领域，无法提供字体许可证。
-
-如果您正在寻找可以免费商用的开源中文像素字体，请尝试以下项目：
-
-- [方舟像素字体](https://github.com/TakWolf/ark-pixel-font)
-- [缝合像素字体](https://github.com/TakWolf/fusion-pixel-font)
+> [!WARNING]
+> 
+> 本字体字模版权并非公有领域，无法提供字体许可证。
+> 
+> 如果您正在寻找可以免费商用的开源中文像素字体，请尝试以下项目：
+>
+> - [方舟像素字体](https://github.com/TakWolf/ark-pixel-font)
+> - [缝合像素字体](https://github.com/TakWolf/fusion-pixel-font)
 
 # 汉字库像素字体 / HZK Pixel Font
 
@@ -29,7 +29,7 @@
 
 可在 [Releases](https://github.com/TakWolf/hzk-pixel-font/releases) 下载最新的版本。
 
-## 授权信息
+## 授权许可
 
 ### 字体
 
