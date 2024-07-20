@@ -1,16 +1,14 @@
-import os
+from pathlib import Path
 
-project_root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+project_root_dir = Path(__file__).parent.joinpath('..', '..').resolve()
 
-assets_dir = os.path.join(project_root_dir, 'assets')
-glyphs_dir = os.path.join(assets_dir, 'glyphs')
-fonts_dir = os.path.join(assets_dir, 'fonts')
-www_static_dir = os.path.join(assets_dir, 'www-static')
+assets_dir = project_root_dir.joinpath('assets')
+glyphs_dir = assets_dir.joinpath('glyphs')
+fonts_dir = assets_dir.joinpath('fonts')
+www_static_dir = assets_dir.joinpath('www-static')
 
-build_dir = os.path.join(project_root_dir, 'build')
-dump_dir = os.path.join(build_dir, 'dump')
-outputs_dir = os.path.join(build_dir, 'outputs')
-releases_dir = os.path.join(build_dir, 'releases')
-www_dir = os.path.join(build_dir, 'www')
+build_dir = project_root_dir.joinpath('build')
+dump_dir = build_dir.joinpath('dump')
+outputs_dir = build_dir.joinpath('outputs')
 
-docs_dir = os.path.join(project_root_dir, 'docs')
+docs_dir = project_root_dir.joinpath('docs')

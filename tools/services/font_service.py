@@ -1,30 +1,28 @@
 import logging
 import math
-import os
 
 from pixel_font_builder import FontBuilder, WeightName, SerifStyle, SlantStyle, WidthStyle, Glyph
 from pixel_font_builder.opentype import Flavor
 
 from tools.configs import FontConfig
 from tools.configs import path_define
-from tools.utils import fs_util
 from tools.utils import glyph_util
 
 logger = logging.getLogger('font-service')
 
 
 def collect_glyph_files(font_config: FontConfig) -> tuple[dict[int, str], list[tuple[str, str]]]:
-    root_dirs = [os.path.join(path_define.glyphs_dir, str(font_config.size))]
+    root_dirs = [path_define.glyphs_dir.joinpath(str(font_config.size))]
     for source_name in font_config.source_names:
-        root_dirs.append(os.path.join(path_define.dump_dir, source_name))
+        root_dirs.append(path_define.dump_dir.joinpath(source_name))
 
     registry = {}
     for root_dir in reversed(root_dirs):
-        for glyph_file_dir, _, glyph_file_names in os.walk(root_dir):
+        for glyph_file_dir, _, glyph_file_names in root_dir.walk():
             for glyph_file_name in glyph_file_names:
                 if not glyph_file_name.endswith('.png'):
                     continue
-                glyph_file_path = os.path.join(glyph_file_dir, glyph_file_name)
+                glyph_file_path = glyph_file_dir.joinpath(glyph_file_name)
                 if glyph_file_name == 'notdef.png':
                     code_point = -1
                 else:
@@ -80,22 +78,22 @@ def _create_builder(font_config: FontConfig, character_mapping: dict[int, str], 
 
 
 def make_font_files(font_config: FontConfig, character_mapping: dict[int, str], glyph_file_infos: list[tuple[str, str]]):
-    fs_util.make_dirs(path_define.outputs_dir)
+    path_define.outputs_dir.mkdir(parents=True, exist_ok=True)
 
     builder = _create_builder(font_config, character_mapping, glyph_file_infos)
 
-    otf_file_path = os.path.join(path_define.outputs_dir, f'{font_config.outputs_name}.otf')
+    otf_file_path = path_define.outputs_dir.joinpath(f'{font_config.outputs_name}.otf')
     builder.save_otf(otf_file_path)
     logger.info("Make font file: '%s'", otf_file_path)
 
-    woff2_file_path = os.path.join(path_define.outputs_dir, f'{font_config.outputs_name}.woff2')
+    woff2_file_path = path_define.outputs_dir.joinpath(f'{font_config.outputs_name}.woff2')
     builder.save_otf(woff2_file_path, flavor=Flavor.WOFF2)
     logger.info("Make font file: '%s'", woff2_file_path)
 
-    ttf_file_path = os.path.join(path_define.outputs_dir, f'{font_config.outputs_name}.ttf')
+    ttf_file_path = path_define.outputs_dir.joinpath(f'{font_config.outputs_name}.ttf')
     builder.save_ttf(ttf_file_path)
     logger.info("Make font file: '%s'", ttf_file_path)
 
-    bdf_file_path = os.path.join(path_define.outputs_dir, f'{font_config.outputs_name}.bdf')
+    bdf_file_path = path_define.outputs_dir.joinpath(f'{font_config.outputs_name}.bdf')
     builder.save_bdf(bdf_file_path)
     logger.info("Make font file: '%s'", bdf_file_path)

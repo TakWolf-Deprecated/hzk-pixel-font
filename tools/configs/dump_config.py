@@ -1,5 +1,4 @@
 import math
-import os
 
 from tools.configs import path_define
 
@@ -7,8 +6,8 @@ from tools.configs import path_define
 class DumpConfig:
     def __init__(self, font_name: str, font_type: str, glyph_width: int, glyph_height: int):
         self.font_name = font_name
-        self.font_file_path = os.path.join(path_define.fonts_dir, font_name)
-        self.dump_dir = os.path.join(path_define.dump_dir, font_name)
+        self.font_file_path = path_define.fonts_dir.joinpath(font_name)
+        self.dump_dir = path_define.dump_dir.joinpath(font_name)
         self.font_type = font_type
 
         self.glyph_width = glyph_width

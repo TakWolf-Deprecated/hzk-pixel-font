@@ -1,17 +1,16 @@
 import logging
-import os.path
 import shutil
 
 from tools import configs
 from tools.configs import path_define
 from tools.services import dump_service, font_service, image_service
-from tools.utils import fs_util
 
 logging.basicConfig(level=logging.DEBUG)
 
 
 def main():
-    fs_util.delete_dir(path_define.build_dir)
+    if path_define.build_dir.exists():
+        shutil.rmtree(path_define.build_dir)
 
     for dump_config in configs.dump_configs:
         dump_service.dump_font(dump_config)
@@ -22,8 +21,8 @@ def main():
         image_service.make_preview_image_file(font_config)
 
     shutil.copy(
-        os.path.join(path_define.www_static_dir, 'index.html'),
-        os.path.join(path_define.outputs_dir, 'index.html'),
+        path_define.www_static_dir.joinpath('index.html'),
+        path_define.outputs_dir.joinpath('index.html'),
     )
 
 

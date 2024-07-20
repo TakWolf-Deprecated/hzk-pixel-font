@@ -1,12 +1,10 @@
 import logging
-import os
 from typing import IO
 
 from character_encoding_utils import gb2312
 from character_encoding_utils.gb2312 import GB2312Exception
 
 from tools.configs import DumpConfig
-from tools.utils import fs_util
 from tools.utils import glyph_util
 
 logger = logging.getLogger('dump-service')
@@ -25,7 +23,7 @@ def _dump_glyph(dump_config: DumpConfig, c: str, glyph_bytes: bytes):
                     glyph_data_row.append(0)
         glyph_data.append(glyph_data_row)
     hex_name = f'{ord(c): 04X}'
-    file_path = os.path.join(dump_config.dump_dir, f'{hex_name}.png')
+    file_path = dump_config.dump_dir.joinpath(f'{hex_name}.png')
     glyph_util.save_glyph_data_to_png(glyph_data, file_path)
     logger.info('Dump %s %d*%d %s - %s', dump_config.font_name, dump_config.glyph_width, dump_config.glyph_height, c if c.isprintable() else ' ', hex_name)
 
@@ -58,9 +56,9 @@ def _dump_font_gb2312(dump_config: DumpConfig, file: IO, row_start: int, row_end
 
 
 def dump_font(dump_config: DumpConfig):
-    fs_util.make_dirs(dump_config.dump_dir)
+    dump_config.dump_dir.mkdir(parents=True, exist_ok=True)
 
-    with open(dump_config.font_file_path, 'rb') as file:
+    with dump_config.font_file_path.open('rb') as file:
         if dump_config.font_type == 'asc':
             _dump_font_ascii(dump_config, file, 0, 255)
         elif dump_config.font_type == 'hzk':

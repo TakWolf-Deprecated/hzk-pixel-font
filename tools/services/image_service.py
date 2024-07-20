@@ -1,17 +1,15 @@
 import logging
-import os
 
 from PIL import Image, ImageFont, ImageDraw
 
 from tools.configs import FontConfig
 from tools.configs import path_define
-from tools.utils import fs_util
 
 logger = logging.getLogger('image-service')
 
 
 def make_preview_image_file(font_config: FontConfig):
-    font = ImageFont.truetype(os.path.join(path_define.outputs_dir, f'{font_config.outputs_name}.woff2'), font_config.size)
+    font = ImageFont.truetype(path_define.outputs_dir.joinpath(f'{font_config.outputs_name}.woff2'), font_config.size)
     text_color = (0, 0, 0, 255)
 
     image = Image.new('RGBA', (font_config.size * 27, font_config.size * 11), (255, 255, 255, 255))
@@ -23,7 +21,7 @@ def make_preview_image_file(font_config: FontConfig):
     draw.text((font_config.size, font_config.size * 9), '0123456789', fill=text_color, font=font)
     image = image.resize((image.width * 2, image.height * 2), Image.Resampling.NEAREST)
 
-    fs_util.make_dirs(path_define.outputs_dir)
-    file_path = os.path.join(path_define.outputs_dir, font_config.preview_image_file_name)
+    path_define.outputs_dir.mkdir(parents=True, exist_ok=True)
+    file_path = path_define.outputs_dir.joinpath(font_config.preview_image_file_name)
     image.save(file_path)
     logger.info("Make preview image file: '%s'", file_path)
