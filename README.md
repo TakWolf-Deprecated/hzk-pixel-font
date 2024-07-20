@@ -50,6 +50,7 @@
 ## 程序依赖
 
 - [Pixel Font Builder](https://github.com/TakWolf/pixel-font-builder)
+- [Pixel Font Knife](https://github.com/TakWolf/pixel-font-knife)
 - [Character Encoding Utils](https://github.com/TakWolf/character-encoding-utils)
-- [PyPNG](https://gitlab.com/drj11/pypng)
 - [Pillow](https://github.com/python-pillow/Pillow)
+- [Loguru](https://github.com/Delgan/loguru)

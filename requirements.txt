@@ -1,4 +1,5 @@
 pixel-font-builder==0.0.27
+pixel-font-knife==0.0.5
 character-encoding-utils==0.0.8
-pypng==0.20220715.0
 pillow==10.4.0
+loguru==0.7.2
