@@ -53,4 +53,3 @@
 - [Character Encoding Utils](https://github.com/TakWolf/character-encoding-utils)
 - [PyPNG](https://gitlab.com/drj11/pypng)
 - [Pillow](https://github.com/python-pillow/Pillow)
-- [GitPython](https://github.com/gitpython-developers/GitPython)

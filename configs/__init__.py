@@ -1,6 +1,5 @@
 from configs.dump_config import DumpConfig
 from configs.font_config import FontConfig
-from configs.git_deploy_config import GitDeployConfig
 
 font_configs = [
     FontConfig(
@@ -113,9 +112,3 @@ dump_configs = [
         glyph_height=48,
     ),
 ]
-
-git_deploy_configs = [GitDeployConfig(
-    url='git@github.com:TakWolf/hzk-pixel-font.git',
-    remote_name='github',
-    branch_name='gh-pages',
-)]
