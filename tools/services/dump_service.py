@@ -5,8 +5,9 @@ from typing import IO
 from character_encoding_utils import gb2312
 from character_encoding_utils.gb2312 import GB2312Exception
 
-from configs import DumpConfig
-from utils import fs_util, glyph_util
+from tools.configs import DumpConfig
+from tools.utils import fs_util
+from tools.utils import glyph_util
 
 logger = logging.getLogger('dump-service')
 

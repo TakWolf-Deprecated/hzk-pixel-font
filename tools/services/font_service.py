@@ -5,8 +5,10 @@ import os
 from pixel_font_builder import FontBuilder, WeightName, SerifStyle, SlantStyle, WidthStyle, Glyph
 from pixel_font_builder.opentype import Flavor
 
-from configs import path_define, FontConfig
-from utils import fs_util, glyph_util
+from tools.configs import FontConfig
+from tools.configs import path_define
+from tools.utils import fs_util
+from tools.utils import glyph_util
 
 logger = logging.getLogger('font-service')
 

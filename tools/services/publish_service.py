@@ -2,9 +2,9 @@ import logging
 import os
 import shutil
 
-import configs
-from configs import path_define
-from utils import fs_util
+from tools import configs
+from tools.configs import path_define
+from tools.utils import fs_util
 
 logger = logging.getLogger('publish-service')
 

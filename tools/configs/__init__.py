@@ -1,5 +1,5 @@
-from configs.dump_config import DumpConfig
-from configs.font_config import FontConfig
+from tools.configs.dump_config import DumpConfig
+from tools.configs.font_config import FontConfig
 
 font_configs = [
     FontConfig(

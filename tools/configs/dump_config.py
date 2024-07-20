@@ -1,7 +1,7 @@
 import math
 import os
 
-from configs import path_define
+from tools.configs import path_define
 
 
 class DumpConfig:
