@@ -2,7 +2,7 @@ import logging
 import math
 import os
 
-from pixel_font_builder import FontBuilder, Glyph, StyleName, SerifMode, WidthMode
+from pixel_font_builder import FontBuilder, WeightName, SerifStyle, SlantStyle, WidthStyle, Glyph
 from pixel_font_builder.opentype import Flavor
 
 from configs import path_define, FontConfig
@@ -47,20 +47,20 @@ def collect_glyph_files(font_config: FontConfig) -> tuple[dict[int, str], list[t
 
 def _create_builder(font_config: FontConfig, character_mapping: dict[int, str], glyph_file_infos: list[tuple[str, str]]) -> FontBuilder:
     builder = FontBuilder()
+    builder.font_metric.font_size = font_config.size
+    builder.font_metric.horizontal_layout.ascent = font_config.ascent
+    builder.font_metric.horizontal_layout.descent = font_config.descent
+    builder.font_metric.x_height = font_config.x_height
+    builder.font_metric.cap_height = font_config.cap_height
 
-    builder.metrics.size = font_config.size
-    builder.metrics.ascent = font_config.ascent
-    builder.metrics.descent = font_config.descent
-    builder.metrics.x_height = font_config.x_height
-    builder.metrics.cap_height = font_config.cap_height
-
-    builder.meta_infos.version = FontConfig.VERSION
-    builder.meta_infos.family_name = f'{FontConfig.FAMILY_NAME} {font_config.size}px'
-    builder.meta_infos.style_name = StyleName.REGULAR
-    builder.meta_infos.serif_mode = SerifMode.SANS_SERIF
-    builder.meta_infos.width_mode = WidthMode.MONOSPACED
-    builder.meta_infos.description = FontConfig.DESCRIPTION
-    builder.meta_infos.vendor_url = FontConfig.VENDOR_URL
+    builder.meta_info.version = FontConfig.VERSION
+    builder.meta_info.family_name = f'{FontConfig.FAMILY_NAME} {font_config.size}px'
+    builder.meta_info.weight_name = WeightName.REGULAR
+    builder.meta_info.serif_style = SerifStyle.SANS_SERIF
+    builder.meta_info.slant_style = SlantStyle.NORMAL
+    builder.meta_info.width_style = WidthStyle.MONOSPACED
+    builder.meta_info.description = FontConfig.DESCRIPTION
+    builder.meta_info.vendor_url = FontConfig.VENDOR_URL
 
     builder.character_mapping.update(character_mapping)
 
@@ -70,8 +70,8 @@ def _create_builder(font_config: FontConfig, character_mapping: dict[int, str], 
         builder.glyphs.append(Glyph(
             name=glyph_name,
             advance_width=glyph_width,
-            offset=(0, offset_y),
-            data=glyph_data,
+            horizontal_origin=(0, offset_y),
+            bitmap=glyph_data,
         ))
 
     return builder
