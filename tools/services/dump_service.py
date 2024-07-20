@@ -1,13 +1,11 @@
-import logging
 from typing import IO
 
 from character_encoding_utils import gb2312
 from character_encoding_utils.gb2312 import GB2312Exception
+from loguru import logger
 
 from tools.configs import DumpConfig
 from tools.utils import glyph_util
-
-logger = logging.getLogger('dump-service')
 
 
 def _dump_glyph(dump_config: DumpConfig, c: str, glyph_bytes: bytes):
@@ -25,7 +23,7 @@ def _dump_glyph(dump_config: DumpConfig, c: str, glyph_bytes: bytes):
     hex_name = f'{ord(c): 04X}'
     file_path = dump_config.dump_dir.joinpath(f'{hex_name}.png')
     glyph_util.save_glyph_data_to_png(glyph_data, file_path)
-    logger.info('Dump %s %d*%d %s - %s', dump_config.font_name, dump_config.glyph_width, dump_config.glyph_height, c if c.isprintable() else ' ', hex_name)
+    logger.info('Dump {} {}*{} {} - {}', dump_config.font_name, dump_config.glyph_width, dump_config.glyph_height, c if c.isprintable() else ' ', hex_name)
 
 
 def _dump_font_ascii(dump_config: DumpConfig, file: IO, num_start: int, num_end: int):

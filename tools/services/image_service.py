@@ -1,11 +1,8 @@
-import logging
-
 from PIL import Image, ImageFont, ImageDraw
+from loguru import logger
 
 from tools.configs import FontConfig
 from tools.configs import path_define
-
-logger = logging.getLogger('image-service')
 
 
 def make_preview_image_file(font_config: FontConfig):
@@ -24,4 +21,4 @@ def make_preview_image_file(font_config: FontConfig):
     path_define.outputs_dir.mkdir(parents=True, exist_ok=True)
     file_path = path_define.outputs_dir.joinpath(font_config.preview_image_file_name)
     image.save(file_path)
-    logger.info("Make preview image file: '%s'", file_path)
+    logger.info("Make preview image file: '{}'", file_path)

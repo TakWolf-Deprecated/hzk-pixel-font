@@ -1,14 +1,12 @@
-import logging
 import math
 
+from loguru import logger
 from pixel_font_builder import FontBuilder, WeightName, SerifStyle, SlantStyle, WidthStyle, Glyph
 from pixel_font_builder.opentype import Flavor
 
 from tools.configs import FontConfig
 from tools.configs import path_define
 from tools.utils import glyph_util
-
-logger = logging.getLogger('font-service')
 
 
 def collect_glyph_files(font_config: FontConfig) -> tuple[dict[int, str], list[tuple[str, str]]]:
@@ -84,16 +82,16 @@ def make_font_files(font_config: FontConfig, character_mapping: dict[int, str], 
 
     otf_file_path = path_define.outputs_dir.joinpath(f'{font_config.outputs_name}.otf')
     builder.save_otf(otf_file_path)
-    logger.info("Make font file: '%s'", otf_file_path)
+    logger.info("Make font file: '{}'", otf_file_path)
 
     woff2_file_path = path_define.outputs_dir.joinpath(f'{font_config.outputs_name}.woff2')
     builder.save_otf(woff2_file_path, flavor=Flavor.WOFF2)
-    logger.info("Make font file: '%s'", woff2_file_path)
+    logger.info("Make font file: '{}'", woff2_file_path)
 
     ttf_file_path = path_define.outputs_dir.joinpath(f'{font_config.outputs_name}.ttf')
     builder.save_ttf(ttf_file_path)
-    logger.info("Make font file: '%s'", ttf_file_path)
+    logger.info("Make font file: '{}'", ttf_file_path)
 
     bdf_file_path = path_define.outputs_dir.joinpath(f'{font_config.outputs_name}.bdf')
     builder.save_bdf(bdf_file_path)
-    logger.info("Make font file: '%s'", bdf_file_path)
+    logger.info("Make font file: '{}'", bdf_file_path)

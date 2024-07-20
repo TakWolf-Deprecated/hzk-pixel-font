@@ -1,11 +1,8 @@
-import logging
 import shutil
 
 from tools import configs
 from tools.configs import path_define
 from tools.services import dump_service, font_service, image_service
-
-logging.basicConfig(level=logging.DEBUG)
 
 
 def main():
