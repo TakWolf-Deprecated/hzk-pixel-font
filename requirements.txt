@@ -1,5 +1,5 @@
-pixel-font-builder==0.0.27
-pixel-font-knife==0.0.5
+pixel-font-builder==0.0.28
+pixel-font-knife==0.0.8
 character-encoding-utils==0.0.8
-pillow==10.4.0
+pillow==11.0.0
 loguru==0.7.2
