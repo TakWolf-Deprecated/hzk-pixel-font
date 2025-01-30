@@ -9,6 +9,8 @@
 
 # 汉字库像素字体 / HZK Pixel Font
 
+[<img src="https://api.gitsponsors.com/api/badge/img?id=324149343" height="20">](https://api.gitsponsors.com/api/badge/link?p=F3GYRbTZ0P5Zgr0RUz4/LxCuEKmkZ+0B9CpWq2mROPF0Mby/hugdbhrzSMZt+6EkV8XglyK0oFPqW0y1lC9j7QEQQ/8omTFcZiUX5nfh416fn8AWy1O5QxscJ7BE0LhF/FsUUb+8PbWTKgs7cAuwmw==)
+
 来源于旧操作系统的点阵字体。
 
 这个项目提供了构建字体所需要的完整程序。
