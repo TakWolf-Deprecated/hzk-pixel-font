@@ -2,7 +2,7 @@ import shutil
 
 from tools import configs
 from tools.configs import path_define
-from tools.services import dump_service, font_service, image_service
+from tools.services import dump_service, font_service, image_service, publish_service
 
 
 def main():
@@ -17,7 +17,8 @@ def main():
         font_service.make_fonts(font_config, character_mapping, glyph_sequence)
         image_service.make_preview_image(font_config)
 
-    shutil.copy(path_define.www_static_dir.joinpath('index.html'), path_define.outputs_dir.joinpath('index.html'))
+    publish_service.update_docs()
+    publish_service.update_www()
 
 
 if __name__ == '__main__':
